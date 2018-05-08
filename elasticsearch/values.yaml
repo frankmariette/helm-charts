@@ -9,9 +9,9 @@ image:
 useSSL: false
 
 clientReplicas: 1
-masterReplicas: 1
+masterReplicas: 2
 dataReplicas: 1
-dataVolumeSize: 1Gi
+dataVolumeSize: 10Gi
 javaOpts: "-Xms1024m -Xmx1024m"
 
 # Deploy data nodes across zones

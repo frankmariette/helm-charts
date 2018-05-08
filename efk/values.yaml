@@ -22,9 +22,9 @@ elasticsearch:
     tag: "6.1.3_0"
   name: efk-cluster
   clientReplicas: 1
-  masterReplicas: 1
+  masterReplicas: 2
   dataReplicas: 1
-  dataVolumeSize: 1Gi
+  dataVolumeSize: 20Gi
   javaOpts: "-Xms1024m -Xmx1024m"
   resources:
     requests:
@@ -46,4 +46,4 @@ fluent-bit:
       host: elasticsearch-efk-cluster
       port: 9200
   rbac:
-    create: false
+    create: true

@@ -1,17 +1,50 @@
 # Helm charts
 
-[As a blogger](https://akomljen.com) and DevOps consultant I work with Helm and Kubernetes, in general, a lot.
-This is my collection of Helm charts that I'm using to do some daily work, or just for research.
-
 To start, add the repo first:
 ```
-helm repo add akomljen-charts https://raw.githubusercontent.com/komljen/helm-charts/master/charts/
+helm repo add frankmariette-charts https://raw.githubusercontent.com/frankmariette/helm-charts/master/charts/
 ```
 
-## Official Charts Repository
+# Installation
 
-Why not use official charts repo?
 
-Well, if you tried to contribute to the official charts repo you probably know that you need to wait a few weeks or more to merge. There are a lot of opened pull requests and they require the huge amount of work. A lot of people are learning Helm while contributing, so maintainers need to guide them. That is slow and sometimes I cannot wait for changes to get merged.
+## First Step
+```
+helm install --name es-operator \
+    --namespace logging \
+    frankmariette-charts/elasticsearch-operator
+```
 
-From time to time, I will sync those charts to official charts repo to make them available at [KubeApps](https://kubeapps.com/).
+Check if the pods are running with:
+```
+kubectl get pods -n logging
+```
+
+Running the following command:
+```
+kubectl get CustomResourceDefinition
+```
+should give you a CRD of `elasticsearchclusters.enterprises.upmc.com`.
+
+After this has been installed you can install the EFK stack with
+
+```
+helm install --name efk \
+    --namespace logging \
+    frankmariette-charts/efk
+```
+
+and finally after several minutes you should have a set of pods running with that you can see with 
+
+```
+kubectl get pods -n logging
+```
+
+# Accessing Kibana
+Run `kubectl port-forward efk-kibana-<INSERT_POD_ID_HERE> 5601 -n logging`
+and then go to `http://localhost:5601` to view the Kibana dashboard. If it is your first time here, 
+you will need to setup an index. Add the index `kubernetes_cluster*`, choose a timestamp and then you are set. 
+
+
+# Credit
+Credit to @komljen on GitHub for this guide. This fork just has modifications needed for the RBAC instance as well as scaling the size up. 

@@ -7,10 +7,10 @@ keywords:
 - elasticsearch
 - kibana
 maintainers:
-- name: compleatang
-  email: casey@monax.io
-- name: komljen
-  email: alen.komljen@live.com
+- name: Mike Groner
+  email: mikegroner@carfax.com
+- name: frankmariette
+  email: frankmariette@carfax.com
 sources:
 - https://github.com/elastic/kibana
 engine: gotpl

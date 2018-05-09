@@ -18,7 +18,7 @@ entries:
     digest: 70ce2ed963de903393648134fb181a56e44f189164dffedbea0a6a297bf93f1a
     name: efk
     urls:
-    - efk-0.1.0.tgz
+    - efk-0.1.0.tgzcd
     version: 0.1.0
   elasticsearch:
   - apiVersion: v1

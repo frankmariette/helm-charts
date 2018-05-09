@@ -1,4 +1,4 @@
-# MAINTAINER: Alen Komljen <akomljen.com>
+# MAINTAINER: Frank Mariette <frankmariette@carfax.com>
 
 CHARTS = $(shell ls -d */ | grep -v charts)
 

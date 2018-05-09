@@ -1,6 +1,6 @@
 # Default values for efk.
 
-# https://github.com/komljen/helm-charts/blob/master/kibana/values.yaml
+# https://github.com/frankmariette/helm-charts/blob/master/kibana/values.yaml
 kibana:
   image:
     repository: "docker.elastic.co/kibana/kibana-oss"
@@ -15,7 +15,7 @@ kibana:
     LOGGING_VERBOSE: "true"
     SERVER_DEFAULTROUTE: "/app/kibana"
 
-# https://github.com/komljen/helm-charts/blob/master/elasticsearch/values.yaml
+# https://github.com/frankmariette/helm-charts/blob/master/elasticsearch/values.yaml
 elasticsearch:
   image:
     repository: upmcenterprises/docker-elasticsearch-kubernetes
